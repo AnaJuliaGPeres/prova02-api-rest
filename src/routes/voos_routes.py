@@ -15,7 +15,7 @@ voos_router = APIRouter(prefix="/voos")
 @voos_router.post("")
 def cria_voo(voo: Voo):
     with get_session() as session:
-        LIMITE_HORAS = 2
+        LIMITE_HORAS = 5
         hora_atual = datetime.now()
         hora_limite = hora_atual + timedelta(hours=LIMITE_HORAS)
         no_horario_limite = voo.data_saida <= hora_limite
